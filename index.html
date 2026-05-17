@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The Archive of Forgotten Legends</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <canvas id="spiritCanvas"></canvas>
+  <div id="petalLayer"></div>
+
+  <div class="mist mist-one"></div>
+  <div class="mist mist-two"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="seal">灵</span>
+
+      <div>
+        <h1>The Archive of Forgotten Legends</h1>
+        <p>云梦阁 · A celestial archive of stories, dramas, and memories</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-btn" aria-label="Toggle day and night theme">
+        ☾ Night
+      </button>
+
+      <button id="soundToggle" class="sound-btn" aria-label="Toggle sound">
+        ♫ Ambient
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- CENTERED PHOTO MOON GATE ENTRANCE -->
+    <section id="entrance" class="realm-section active-section gate-landing">
+      <div class="gate-landing-content">
+        <span class="seal-stamp">藏</span>
+
+        <p class="eyebrow">云梦阁 · Hidden Archive of Cloud Dreams</p>
+
+        <h2>The Archive of Forgotten Legends</h2>
+
+        <p class="hero-poem">
+          “Beneath moonlight, old stories become immortal.”
+        </p>
+
+        <p class="gate-intro">
+          Enter through the moon gate to open the realm map of legends, drama scrolls,
+          spirit memories, and celestial archives.
+        </p>
+
+        <button id="enterGate" class="moon-gate-entry" aria-label="Enter the realm map">
+          <div class="moon-gate-scene" aria-hidden="true">
+            <div class="palace-wall"></div>
+            <div class="garden-roof"></div>
+            <span class="garden-lantern lantern-left"></span>
+            <span class="garden-lantern lantern-right"></span>
+            <span class="garden-vine vine-left"></span>
+            <span class="garden-vine vine-right"></span>
+
+            <div class="full-moon"></div>
+            <div class="gate-reflection"></div>
+            <div class="gate-ground"></div>
+
+            <div class="portal-sparkles"></div>
+            <div class="portal-mist"></div>
+            <div class="portal-core-blur"></div>
+            <div class="ink-wash"></div>
+            <span class="ink-mountain mountain-left"></span>
+            <span class="ink-mountain mountain-right"></span>
+            <span class="ink-water"></span>
+            <span class="ink-seal-mark"></span>
+
+            <div class="glow-arch">
+              <span class="gate-stone stone-1"></span>
+              <span class="gate-stone stone-2"></span>
+              <span class="gate-stone stone-3"></span>
+              <span class="gate-stone stone-4"></span>
+              <span class="gate-stone stone-5"></span>
+              <span class="gate-stone stone-6"></span>
+              <span class="gate-stone stone-7"></span>
+              <span class="gate-stone stone-8"></span>
+
+              <span class="gate-rune rune-1"></span>
+              <span class="gate-rune rune-2"></span>
+              <span class="gate-rune rune-3"></span>
+              <span class="gate-rune rune-4"></span>
+
+              <span class="blossom-branch blossom-left"></span>
+              <span class="blossom-branch blossom-right"></span>
+            </div>
+
+            <span class="portal-petal petal-1"></span>
+            <span class="portal-petal petal-2"></span>
+            <span class="portal-petal petal-3"></span>
+            <span class="portal-petal petal-4"></span>
+            <span class="portal-petal petal-5"></span>
+            <span class="portal-petal petal-6"></span>
+          </div>
+        </button>
+
+        <p class="gate-caption">
+          Click the moon gate to pass into the archive.
+        </p>
+      </div>
+    </section>
+
+    <!-- REALM NAVIGATION -->
+    <nav class="realm-nav">
+      <button class="realm-link active-nav" data-target="entrance">Gate</button>
+      <button class="realm-link" data-target="legends">Legends</button>
+      <button class="realm-link" data-target="dramas">Drama Shrine</button>
+      <button class="realm-link" data-target="journal">Spirit Journal</button>
+    </nav>
+
+    <!-- REALM MAP / MAIN HUB -->
+    <section id="map" class="realm-section">
+      <div class="section-heading">
+        <p class="eyebrow">Dream Map</p>
+        <h2>You Have Entered the Archive</h2>
+        <p>
+          Choose which realm to open first. Each path leads to a different memory,
+          legend, or scroll.
+        </p>
+      </div>
+
+      <div class="realm-map">
+        <div class="map-node realm-link" data-target="legends">
+          <span>竹林</span>
+          <h3>Bamboo Forest</h3>
+          <p>Open the Chinese legend scrolls</p>
+        </div>
+
+        <div class="map-node realm-link" data-target="dramas">
+          <span>月宫</span>
+          <h3>Moon Palace</h3>
+          <p>Track dramas, trailers, and public offerings</p>
+        </div>
+
+        <div class="map-node realm-link" data-target="journal">
+          <span>墨</span>
+          <h3>Ink Pavilion</h3>
+          <p>Save quotes, reflections, and spirit notes</p>
+        </div>
+
+        <div class="map-node">
+          <span>狐</span>
+          <h3>Fox Spirit Grove</h3>
+          <p>Future character and favorite couple gallery</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEGEND LIBRARY -->
+    <section id="legends" class="realm-section">
+      <div class="section-heading">
+        <p class="eyebrow">Celestial Library</p>
+        <h2>Legend Scrolls</h2>
+        <p>
+          Choose a scroll to hear the memory of an ancient tale.
+        </p>
+      </div>
+
+      <div id="legendGrid" class="legend-grid"></div>
+    </section>
+
+    <!-- DRAMA TRACKER -->
+    <section id="dramas" class="realm-section">
+      <div class="section-heading">
+        <p class="eyebrow">Memory Shrine</p>
+        <h2>Chinese Drama Archive</h2>
+        <p>
+          Keep track of dramas you have watched, want to watch, or are currently watching.
+        </p>
+      </div>
+
+      <div class="drama-layout">
+        <form id="dramaForm" class="drama-form">
+          <h3>Offer a Drama Scroll</h3>
+
+          <label>
+            Scroll Title
+            <input
+              id="dramaTitle"
+              type="text"
+              placeholder="Example: Love Between Fairy and Devil"
+              required
+            />
+          </label>
+
+          <label>
+            Cultivation Status
+            <select id="dramaStatus">
+              <option value="Want to Watch">Want to Watch · Prophecy Scroll</option>
+              <option value="Watching">Watching · Currently Unfolding</option>
+              <option value="Completed">Completed · Sealed Memory</option>
+            </select>
+          </label>
+
+          <label>
+            Moon Rating
+            <select id="dramaRating">
+              <option value="Unrated">Unrated</option>
+              <option value="🌙">🌙</option>
+              <option value="🌙🌙">🌙🌙</option>
+              <option value="🌙🌙🌙">🌙🌙🌙</option>
+              <option value="🌙🌙🌙🌙">🌙🌙🌙🌙</option>
+              <option value="🌙🌙🌙🌙🌙">🌙🌙🌙🌙🌙</option>
+            </select>
+          </label>
+
+          <label>
+            YouTube Trailer Link
+            <input
+              id="dramaTrailer"
+              type="url"
+              placeholder="Paste a YouTube trailer link here"
+            />
+          </label>
+
+          <label>
+            Memory Notes / Favorite Quote
+            <textarea
+              id="dramaNotes"
+              placeholder="What did this story make you feel?"
+            ></textarea>
+          </label>
+
+          <label>
+            Your Name / Alias
+            <input
+              id="dramaSubmitter"
+              type="text"
+              placeholder="Example: Moonlit Scholar"
+            />
+          </label>
+
+          <label class="checkbox-row">
+            <input id="submitToPublic" type="checkbox" checked />
+            Offer this drama to the public archive
+          </label>
+
+          <button class="primary-btn" type="submit">
+            Seal Scroll Into Archive
+          </button>
+        </form>
+
+        <div>
+          <div class="drama-tabs">
+            <button class="tab-btn active-tab" data-filter="All">All</button>
+            <button class="tab-btn" data-filter="Want to Watch">Want</button>
+            <button class="tab-btn" data-filter="Watching">Watching</button>
+            <button class="tab-btn" data-filter="Completed">Completed</button>
+          </div>
+
+          <div id="dramaList" class="drama-list"></div>
+
+          <div class="community-archive-panel">
+            <div class="community-header">
+              <h3>Public Offerings to the Archive</h3>
+
+              <button id="refreshCommunityDramas" class="ghost-btn" type="button">
+                Reopen the Public Archive
+              </button>
+            </div>
+
+            <div id="communityDramaList" class="drama-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPIRIT JOURNAL -->
+    <section id="journal" class="realm-section">
+      <div class="section-heading">
+        <p class="eyebrow">Private Cultivator Notes</p>
+        <h2>Spirit Journal</h2>
+        <p>
+          Save thoughts, favorite quotes, character ideas, or little story memories.
+        </p>
+      </div>
+
+      <div class="journal-card">
+        <textarea id="journalEntry" placeholder="Write a memory here..."></textarea>
+
+        <div class="journal-actions">
+          <button id="saveJournal" class="primary-btn">Save Memory</button>
+          <button id="clearJournal" class="ghost-btn">Clear</button>
+        </div>
+
+        <div id="savedJournal" class="saved-journal"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SPIRIT COMPANION -->
+  <button id="spiritCompanion" class="spirit-companion" aria-label="Spirit companion">
+    🦊
+  </button>
+
+  <div id="spiritMessage" class="spirit-message">
+    Welcome, traveler. The archive has been waiting.
+  </div>
+
+  <!-- LEGEND SCROLL MODAL -->
+  <div id="legendModal" class="modal hidden">
+    <div class="legend-scroll-content">
+      <button id="closeModal" class="close-btn legend-close-btn">×</button>
+
+      <div class="scroll-rod top-rod"></div>
+
+      <div class="legend-scroll-inner">
+        <p class="scroll-label">传说卷 · Legend Memory Scroll</p>
+
+        <p id="modalSymbol" class="modal-symbol"></p>
+
+        <h2 id="modalTitle"></h2>
+        <p id="modalOrigin" class="modal-origin"></p>
+
+        <div class="legend-story-box ink-story-box">
+          <div id="inkStory" class="ink-story"></div>
+
+          <!-- Hidden backup text for screen readers / fallback -->
+          <p id="modalStory" class="hidden-story"></p>
+        </div>
+
+        <div class="artifact-box">
+          <h3>Memory Fragment</h3>
+          <p id="modalFragment"></p>
+        </div>
+
+        <button id="narrateBtn" class="primary-btn">Hear the Legend</button>
+      </div>
+
+      <div class="scroll-rod bottom-rod"></div>
+    </div>
+  </div>
+
+  <!-- DRAMA SCROLL MODAL -->
+  <div id="dramaModal" class="modal hidden">
+    <div class="drama-scroll-content">
+      <button id="closeDramaModal" class="close-drama-btn">×</button>
+
+      <div class="scroll-rod top-rod"></div>
+
+      <div class="drama-scroll-inner">
+        <p class="scroll-label">影卷 · Drama Memory Scroll</p>
+
+        <h2 id="dramaModalTitle"></h2>
+
+        <div class="drama-scroll-meta">
+          <span id="dramaModalStatus"></span>
+          <span id="dramaModalRating"></span>
+        </div>
+
+        <div id="dramaTrailerWrap" class="trailer-wrap hidden">
+          <iframe
+            id="dramaTrailerFrame"
+            title="Chinese drama trailer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div id="noTrailerMessage" class="no-trailer-message hidden">
+          No trailer has been sealed into this scroll yet.
+        </div>
+
+        <div class="drama-notes-scroll">
+          <h3>Memory Notes</h3>
+          <p id="dramaModalNotes"></p>
+        </div>
+      </div>
+
+      <div class="scroll-rod bottom-rod"></div>
+    </div>
+  </div>
+
+  <!-- HOMEPAGE AMBIENT AUDIO -->
+  <audio
+    id="homepageAmbient"
+    src="audio/xianxia-homepage.mp3"
+    loop
+    preload="auto">
+  </audio>
+
+  <!-- SUPABASE + MAIN SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
