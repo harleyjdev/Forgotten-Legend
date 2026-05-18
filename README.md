@@ -27,3 +27,6 @@ HTML5
 CSS3
 JavaScript
 Custom image assets
+
+# Live Site
+https://harleyjdev.github.io/Forgotten-Legend/
